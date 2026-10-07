@@ -1,7 +1,7 @@
 /* config.js - semua yang perlu kamu ubah ada di file ini */
 /* ===== UBAH BAGIAN INI ===== */
 var WA_NUMBER = "6287878101055";      // 0878 7810 1055
-var FORM_URL  = "https://docs.google.com/forms/d/e/ISI_ID_FORM/viewform";
+var FORM_URL  = "https://docs.google.com/forms/d/19ZimYGdAnNpDqEmkRuB7I_gyXC2Nfh98BGTF98WL-Pw/edit";
 var FORM_TEMPLATE_ENTRY = "entry.0000000"; // dari "Dapatkan link terisi otomatis" di Google Form
 var IG_URL = "https://instagram.com/ejasa.cv";
 // ===== DAFTAR TEMPLATE =====
