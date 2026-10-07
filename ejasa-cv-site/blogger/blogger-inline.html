@@ -1,0 +1,249 @@
+<!-- Ejasa CV: tempel seluruh isi file ini di Blogger > Halaman baru > mode "Tampilan HTML" -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#12308C;--gold:#E8B230;--brown:#7B4F2E;--ink:#1A1F36;--mut:#5A6070;--bg:#F1F1F2;--paper:#fff;--line:#DADCE2;--acc:#12308C;--accfg:#fff;--sel:#E6EBFA;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--navy:#0F2A78;--ink:#EEF0F8;--mut:#A3AACB;--bg:#0B1030;--paper:#151C42;--line:#2A3366;--acc:#E8B230;--accfg:#12308C;--sel:#23305F}}
+:root[data-theme="dark"]{--navy:#0F2A78;--ink:#EEF0F8;--mut:#A3AACB;--bg:#0B1030;--paper:#151C42;--line:#2A3366;--acc:#E8B230;--accfg:#12308C;--sel:#23305F}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;padding-bottom:88px}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;line-height:1.1}
+h1{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;font-size:clamp(3.4rem,11vw,6.2rem);letter-spacing:.01em}
+h1 .j{display:block;color:var(--acc)}
+:root[data-theme="dark"] h1 .j{color:#fff}
+h1 .g{display:block;background:linear-gradient(90deg,var(--gold),var(--brown));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:800}
+h3{font-size:1rem}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:10px;font-family:inherit;font-weight:700;font-size:.95rem;border:2px solid var(--navy);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none}
+.btn.wa{background:var(--gold);border-color:var(--gold);color:#12308C}
+.btn.acc{background:var(--acc);border-color:var(--acc);color:var(--accfg)}
+.btn:focus-visible,.chip:focus-visible,summary:focus-visible,.card:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:Anton,Impact,sans-serif;font-size:1.3rem;border:3px solid #4A4AA8}
+.brand b{display:block;font-size:1.3rem;font-weight:800;color:var(--acc);line-height:1.1}
+:root[data-theme="dark"] .brand b{color:#fff}
+.brand small{color:var(--mut)}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:30px 0 40px}
+.bar-g{width:110px;height:6px;background:var(--gold);border-radius:3px;margin:18px 0}
+.hero .lead{font-size:1.3rem;font-weight:500;line-height:1.35;margin-bottom:24px}
+.hero .lead b{display:block}
+.hero .lead em{font-style:normal;font-weight:800;color:var(--acc)}
+:root[data-theme="dark"] .hero .lead em{color:var(--gold)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.vis{position:relative;max-width:320px;margin-left:auto;padding-bottom:40px}
+.sheet{background:#fff;border:1px solid var(--line);border-radius:4px;padding:0 0 18px;aspect-ratio:3/4;display:flex;flex-direction:column;gap:9px;box-shadow:8px 8px 0 var(--gold);overflow:hidden}
+.sheet .top{background:#3C3C3C;height:22%;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:0 18px}
+.sheet .nm{height:14px;width:60%;background:#fff;border-radius:2px}
+.sheet .ln{height:6px;border-radius:2px;background:#D6D8DE;margin:0 18px}
+.sheet .hd{height:8px;width:30%;background:var(--navy);border-radius:2px;margin:8px 18px 0}
+.badge{position:absolute;right:-14px;bottom:0;background:var(--navy);color:#fff;border-radius:50% 46% 50% 44%;width:150px;height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:4px solid var(--gold);transform:rotate(-6deg)}
+.badge small{font-weight:700;font-size:.8rem;line-height:1.2}
+.badge span{font-family:Anton,Impact,sans-serif;font-size:1.9rem;color:var(--gold);line-height:1.1}
+.trust{background:var(--navy);color:#fff;border-radius:16px;padding:20px 24px;display:flex;gap:24px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.trust .cs b{display:block;color:var(--gold);font-size:.95rem}
+.trust .cs a{font-size:1.7rem;font-weight:800;text-decoration:none;line-height:1.2}
+.trust .cs small{display:block;opacity:.85}
+.tl{display:flex;gap:18px;flex-wrap:wrap}
+.tl div{text-align:center;font-size:.78rem;width:76px;line-height:1.25}
+.tl i{display:grid;place-items:center;width:46px;height:46px;border:2px solid var(--gold);border-radius:50%;margin:0 auto 6px;font-style:normal;font-weight:800;color:var(--gold);font-size:.85rem}
+section{padding:44px 0;border-top:1px solid var(--line);margin-top:40px}
+.sub{color:var(--mut);margin:8px 0 22px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;font-weight:600;font-size:.85rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{background:var(--paper);border:2px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;text-align:left;font-family:inherit;color:inherit}
+.card[aria-pressed="true"]{border-color:var(--gold);background:var(--sel)}
+.code{display:inline-block;background:var(--navy);color:#fff;font-family:Anton,Impact,sans-serif;letter-spacing:.03em;padding:3px 12px;border-radius:99px;font-size:.9rem;margin-bottom:6px}
+.prev{aspect-ratio:3/4;background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px;display:flex;gap:8px;margin-bottom:12px;overflow:hidden}
+.prev.top{flex-direction:column;padding:0}
+.prev .side{width:32%;background:#3C3C3C;border-radius:2px}
+.prev .main{flex:1;display:flex;flex-direction:column;gap:6px}
+.prev.top .main{padding:0 12px 12px}
+.prev .band{height:24%;background:var(--navy)}
+.prev i{display:block;height:5px;background:#D6D8DE;border-radius:2px}
+.prev i.t{height:9px;width:50%;background:var(--gold)}
+.card small{color:var(--mut);display:block}
+.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.pk div{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:10px;padding:20px}
+.pk b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:2rem;display:block;margin:4px 0 10px;color:var(--acc)}
+:root[data-theme="dark"] .pk b{color:var(--gold)}
+.pk ul{margin:0;padding-left:18px;color:var(--mut)}
+.pk .tm{display:block;color:var(--mut);font-size:.85rem}
+.pk .btn{margin-top:16px;width:100%}
+.pl{max-width:640px;border-top:1px solid var(--line)}
+.pl div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);background:none;border-radius:0;border-top:0;border-left:0;border-right:0}
+.pl b{font-family:"Plus Jakarta Sans",sans-serif;font-size:1rem;font-weight:800;margin:0;color:var(--ink)}
+.note{color:var(--mut);max-width:64ch;margin:20px 0 0;padding-left:20px}
+ol.steps{margin:0;padding-left:22px;display:grid;gap:10px;max-width:60ch}
+details{border-bottom:1px solid var(--line);padding:14px 0;max-width:70ch}
+summary{font-weight:700;cursor:pointer}
+details p{color:var(--mut);margin-top:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--navy);color:#fff;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;z-index:5}
+.bar span{font-weight:700;font-size:.92rem;color:var(--gold)}
+.bar .btn.acc{background:transparent;border-color:#fff;color:#fff}
+footer{padding:30px 0;color:var(--mut);font-size:.9rem}
+@media (max-width:720px){.hero{grid-template-columns:1fr}.vis{margin:0;max-width:260px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.prev.pic{padding:0}
+.prev.pic img{width:100%;height:100%;object-fit:cover;display:block}
+</style>
+<div class="wrap">
+  <nav>
+    <div class="brand"><div class="logo" aria-hidden="true">CV</div><div><b>Ejasa CV</b><small>Profesional | Cepat | Terpercaya</small></div></div>
+    <a href="#template">Template</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1><span class="j">JASA</span><span class="g">CURRICULUM VITAE</span></h1>
+      <div class="bar-g"></div>
+      <p class="lead"><b>CV Profesional,</b><b>Peluang Karier</b><em>Lebih Nyata!</em></p>
+      <div class="cta">
+        <a class="btn wa" data-wa="Halo, saya mau tanya soal jasa pembuatan CV." href="#">Chat WhatsApp</a>
+        <a class="btn" href="#template">Lihat template</a>
+      </div>
+    </div>
+    <div class="vis">
+      <div class="sheet" aria-hidden="true">
+        <div class="top"><div class="nm"></div><div class="nm" style="width:35%;opacity:.6"></div></div>
+        <div class="ln" style="width:70%"></div><div class="ln"></div><div class="ln" style="width:88%"></div>
+        <div class="hd"></div><div class="ln"></div><div class="ln" style="width:80%"></div><div class="ln" style="width:65%"></div>
+        <div class="hd"></div><div class="ln" style="width:75%"></div>
+      </div>
+      <div class="badge"><small>Harga paket<br>mulai</small><span id="startPrice">Rp35.000</span></div>
+    </div>
+  </header>
+
+  <div class="trust">
+    <div class="cs"><b>Konsultasi &amp; pemesanan</b><a id="telLink" href="#">0878 7810 1055</a><small>Hubungi kami sekarang!</small></div>
+    <div class="tl">
+      <div><i>Rp</i>Harga Terjangkau</div>
+      <div><i>&#10003;</i>Privasi Aman</div>
+      <div><i>&#9889;</i>Fast Response</div>
+      <div><i>&#9786;</i>Pelayanan Ramah</div>
+    </div>
+  </div>
+
+  <section id="template">
+    <h2>Pilih template</h2>
+    <p class="sub">Ketuk satu kode template. Pilihanmu otomatis ikut terkirim ke form dan WhatsApp.</p>
+    <div class="chips" id="chips" role="group" aria-label="Filter kategori"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="paket">
+    <h2>Paket</h2>
+    <p class="sub">Pembuatan paket memakai desain template yang ada di Instagram @ejasa.cv.</p>
+    <div class="pk" id="pk"></div>
+    <h3 style="margin:36px 0 10px">Layanan satuan</h3>
+    <div class="pl" id="pl"></div>
+    <ul class="note">
+      <li>Prioritas: lewati antrean dengan paket No Antri, pengerjaan 1 jam.</li>
+      <li>Pembayaran via OVO, DANA, ShopeePay, GoPay, dan BCA.</li>
+      <li>Pengerjaan dimulai setelah pengisian data selesai. Teliti dan cek kembali kelengkapan data yang kamu isi.</li>
+      <li>CV di luar paket hanya mendapat file PDF.</li>
+    </ul>
+  </section>
+
+  <section id="alur">
+    <h2>Cara pesan</h2>
+    <p class="sub"></p>
+    <ol class="steps">
+      <li>Pilih kode template di atas.</li>
+      <li>Isi form data diri, pengalaman, dan pendidikan.</li>
+      <li>Chat WhatsApp untuk konfirmasi dan pembayaran.</li>
+      <li>Terima draf, minta revisi, lalu terima file final.</li>
+    </ol>
+    <div class="cta" style="margin-top:22px">
+      <a class="btn acc" id="formBtn" href="#" target="_blank" rel="noopener">Isi form pemesanan</a>
+      <a class="btn wa" id="waBtn" href="#">Chat WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Pertanyaan umum</h2>
+    <p class="sub"></p>
+    <details><summary>Berapa lama pengerjaannya?</summary><p>Isi estimasi waktu kamu di sini, misalnya 1-2 hari kerja setelah form dan pembayaran diterima.</p></details>
+    <details><summary>Berapa kali boleh revisi?</summary><p>Isi jumlah revisi yang kamu berikan per paket.</p></details>
+    <details><summary>File apa yang saya terima?</summary><p>Isi format file, misalnya PDF dan file yang bisa diedit.</p></details>
+  </section>
+
+  <footer>Ikuti Ejasa CV di Instagram: <a id="igLink" href="#" target="_blank" rel="noopener">@ejasa.cv</a></footer>
+</div>
+
+<div class="bar">
+  <span id="pick">Belum pilih template</span>
+  <div class="cta">
+    <a class="btn acc" id="formBtn2" href="#" target="_blank" rel="noopener">Isi form</a>
+    <a class="btn wa" id="waBtn2" href="#">WhatsApp</a>
+  </div>
+</div>
+
+<script>
+/* config.js - semua yang perlu kamu ubah ada di file ini */
+/* ===== UBAH BAGIAN INI ===== */
+var WA_NUMBER = "6287878101055";      // 0878 7810 1055
+var FORM_URL  = "https://docs.google.com/forms/d/e/ISI_ID_FORM/viewform";
+var FORM_TEMPLATE_ENTRY = "entry.0000000"; // dari "Dapatkan link terisi otomatis" di Google Form
+var IG_URL = "https://instagram.com/ejasa.cv";
+// Tambahkan gambar asli dengan: img:"assets/img/templates/kode-001.jpg" (opsional)
+var TEMPLATES = [
+  {n:"CV Kode 001",c:"ATS",d:"ATS, satu kolom, aman dibaca sistem rekrutmen",l:"clean"},
+  {n:"CV Kode 002",c:"Fresh Graduate",d:"Fresh graduate, sidebar gelap",l:"side"},
+  {n:"CV Kode 003",c:"Profesional",d:"Profesional, pita judul di atas",l:"top"},
+  {n:"CV Kode 004",c:"Kreatif",d:"Kreatif, sidebar dan aksen emas",l:"side"},
+  {n:"CV Kode 005",c:"ATS",d:"ATS, minimalis tanpa hiasan",l:"clean"},
+  {n:"CV Kode 008",c:"Profesional",d:"Profesional, header gelap dengan foto",l:"top"}
+];
+var PACKAGES = [
+  {n:"Standart",p:"Rp35.000",t:"Pengerjaan 1x24 jam",f:["CV (PDF)","Surat lamaran (Word)"]},
+  {n:"Business",p:"Rp45.000",t:"Pengerjaan 1x24 jam",f:["CV (PDF)","Surat lamaran (Word)","Gabung PDF","Gratis: edit background foto, request file Word"]},
+  {n:"Premium",p:"Rp50.000",t:"Pengerjaan 3 s.d 4 jam",f:["CV (PDF)","Surat lamaran (Word)","Gabung PDF","Gratis: edit background foto, request file Word, konsultasi"]}
+];
+var SERVICES = [
+  ["Curriculum Vitae","25.000"],["Curriculum Vitae (custom)","30.000"],["Surat lamaran","15.000"],["Surat lamaran (custom)","25.000"],
+  ["Edit background foto","10.000"],["Gabung PDF (<10 lembar)","10.000"],["Gabung PDF (>10 lembar)","15.000"],["Edit CV","15.000"],["Prioritas","20.000"]
+];
+/* =========================== */
+/* app.js - logika halaman, tidak perlu diubah */
+var chosen = "", cat = "Semua";
+var $ = function(id){return document.getElementById(id)};
+function waLink(t){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t)}
+function formLink(){return chosen ? FORM_URL+"?usp=pp_url&"+FORM_TEMPLATE_ENTRY+"="+encodeURIComponent(chosen) : FORM_URL}
+function waText(){return chosen ? 'Halo, saya mau pesan CV dengan template "'+chosen+'".' : "Halo, saya mau tanya soal jasa pembuatan CV."}
+function refresh(){
+  ["formBtn","formBtn2"].forEach(function(i){$(i).href=formLink()});
+  ["waBtn","waBtn2"].forEach(function(i){$(i).href=waLink(waText())});
+  document.querySelectorAll("[data-wa]").forEach(function(a){a.href=waLink(a.dataset.wa)});
+  document.querySelectorAll("[data-pk]").forEach(function(a){a.href=waLink('Halo, saya mau pesan paket '+a.dataset.pk+(chosen?' dengan template "'+chosen+'"':'')+'.')});
+  $("telLink").href=waLink("Halo, saya mau konsultasi soal CV.");
+  $("pick").textContent = chosen ? "Template: "+chosen : "Belum pilih template";
+  $("igLink").href = IG_URL;
+  document.querySelectorAll('a[href^="https://wa.me"]').forEach(function(a){a.target="_top"});
+}
+function preview(l){
+  var lines='<i></i><i></i><i style="width:80%"></i><i></i><i style="width:65%"></i><i></i>';
+  if(l==="side") return '<div class="prev"><div class="side"></div><div class="main"><i class="t"></i>'+lines+'</div></div>';
+  if(l==="top") return '<div class="prev top"><div class="band"></div><div class="main"><i class="t"></i>'+lines+lines+'</div></div>';
+  return '<div class="prev"><div class="main"><i class="t"></i>'+lines+lines+'</div></div>';
+}
+function pic(t){return '<div class="prev pic"><img src="'+t.img+'" alt="Contoh '+t.n+'" loading="lazy"></div>'}
+function render(){
+  var cats=["Semua"].concat(TEMPLATES.map(function(t){return t.c}).filter(function(v,i,a){return a.indexOf(v)===i}));
+  $("chips").innerHTML=cats.map(function(c){return '<button class="chip" aria-pressed="'+(c===cat)+'" data-c="'+c+'">'+c+'</button>'}).join("");
+  $("grid").innerHTML=TEMPLATES.filter(function(t){return cat==="Semua"||t.c===cat}).map(function(t){
+    return '<button class="card" aria-pressed="'+(t.n===chosen)+'" data-n="'+t.n+'">'+(t.img?pic(t):preview(t.l))+'<span class="code">'+t.n.toUpperCase()+'</span><small>'+t.d+'</small></button>'}).join("");
+}
+$("chips").onclick=function(e){var c=e.target.dataset.c;if(c){cat=c;render()}};
+$("grid").onclick=function(e){var b=e.target.closest(".card");if(b){chosen=chosen===b.dataset.n?"":b.dataset.n;render();refresh()}};
+$("pk").innerHTML=PACKAGES.map(function(p){return '<div><h3>'+p.n+'</h3><small class="tm">'+p.t+'</small><b>'+p.p+'</b><ul>'+p.f.map(function(f){return '<li>'+f+'</li>'}).join("")+'</ul><a class="btn wa" data-pk="'+p.n+'" href="#">Pesan paket</a></div>'}).join("");
+$("pl").innerHTML=SERVICES.map(function(r){return '<div><span>'+r[0]+'</span><b>Rp'+r[1]+'</b></div>'}).join("");
+$("startPrice").textContent=PACKAGES[0].p;
+render();refresh();
+</script>
