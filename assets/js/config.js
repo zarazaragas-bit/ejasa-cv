@@ -13,7 +13,7 @@ var IG_URL = "https://instagram.com/ejasa.cv";
 // Menambah template baru: tambah satu baris, lalu unggah gambarnya.
 var BASE = "assets/img/templates/";
 var LIST = [
-  ["001","Fresh Graduate",1],
+  ["001","Profesional",1],
   ["002","Fresh Graduate",1],
   ["003","Kreatif",1],
   ["004","Kreatif",1],
@@ -25,8 +25,8 @@ var LIST = [
   ["010","ATS",1],
   ["011","ATS",0],
   ["012","ATS",0],
-  ["013","Profesional",0],
-  ["014","Profesional",0],
+  ["013","ATS",0],
+  ["014","Fresh Graduate",0],
   ["015","Profesional",0],
   ["016","Fresh Graduate",1],
   ["017","Profesional",1],
@@ -48,11 +48,11 @@ var LIST = [
   ["033","Profesional",0],
   ["034","Kreatif",0],
   ["035","Fresh Graduate",0],
-  ["036","ATS",0],
+  ["036","Profesional",0],
   ["037","Fresh Graduate",0],
   ["038","Fresh Graduate",0],
   ["039","Kreatif",0],
-  ["040","ATS",0]
+  ["040","Kreatif",0]
 ];
 var TEMPLATES = LIST.map(function(r){
   var s = r[2];
