@@ -24,7 +24,7 @@ ejasa-cv-site/
 - `WA_NUMBER`: nomor WhatsApp, format `62...` tanpa `+` atau `0`
 - `FORM_URL` dan `FORM_TEMPLATE_ENTRY`: link Google Form dan kode `entry.xxxx` dari menu "Dapatkan link terisi otomatis"
 - `IG_URL`: link Instagram
-- `TEMPLATES`: daftar kode template. Untuk memakai gambar asli, tambahkan `img:"assets/img/templates/kode-001.jpg"`
+- `TEMPLATES`: daftar kode template. Untuk gambar asli, tambahkan `img:"assets/img/templates/kode-001-cv.jpg"` (tampilan CV) dan `imgSurat:"assets/img/templates/kode-001-surat.jpg"` (tampilan surat lamaran). Di web, ketuk template untuk memilih, ketuk lagi untuk berganti CV dan surat lamaran
 - `PACKAGES` dan `SERVICES`: paket dan harga satuan
 
 Tips gambar template: format JPG atau WebP, lebar sekitar 600 px, ukuran di bawah 150 KB, dan beri watermark tipis.
