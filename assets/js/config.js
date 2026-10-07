@@ -13,6 +13,7 @@ var IG_URL = "https://instagram.com/ejasa.cv";
 // Menambah template baru: tambah satu baris, lalu unggah gambarnya.
 var BASE = "assets/img/templates/";
 var LIST = [
+  ["001","Fresh Graduate",1],
   ["002","Fresh Graduate",1],
   ["003","Kreatif",1],
   ["004","Kreatif",1],
