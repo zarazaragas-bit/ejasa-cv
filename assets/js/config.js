@@ -1,7 +1,7 @@
 /* config.js - semua yang perlu kamu ubah ada di file ini */
 /* ===== UBAH BAGIAN INI ===== */
 var WA_NUMBER = "6287878101055";      // 0878 7810 1055
-var FORM_URL  = "https://docs.google.com/forms/d/19ZimYGdAnNpDqEmkRuB7I_gyXC2Nfh98BGTF98WL-Pw/edit";
+var FORM_URL  = "https://docs.google.com/forms/d/19ZimYGdAnNpDqEmkRuB7I_gyXC2Nfh98BGTF98WL-Pw/";
 var FORM_TEMPLATE_ENTRY = "entry.0000000"; // dari "Dapatkan link terisi otomatis" di Google Form
 var IG_URL = "https://instagram.com/ejasa.cv";
 // ===== DAFTAR TEMPLATE =====
@@ -12,6 +12,8 @@ var IG_URL = "https://instagram.com/ejasa.cv";
 // Kategori di bawah ini perkiraan dari tampilan gambar, silakan koreksi.
 // Menambah template baru: tambah satu baris, lalu unggah gambarnya.
 var BASE = "assets/img/templates/";
+var PAGE_MOBILE = 6;    // jumlah template yang tampil awal di HP
+var PAGE_DESKTOP = 12;  // jumlah template yang tampil awal di komputer
 var LIST = [
   ["001","Profesional",1],
   ["002","Fresh Graduate",1],
