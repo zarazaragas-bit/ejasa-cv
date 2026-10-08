@@ -103,3 +103,20 @@ footer{padding:30px 0;color:var(--mut);font-size:.9rem}
 #lb .cta{justify-content:center}
 #lb .btn{color:#fff;border-color:#fff}
 #lb .btn.wa{color:#12308C;border-color:var(--gold)}
+
+.more{text-align:center;margin-top:20px}
+.more small{display:block;color:var(--mut);margin-bottom:10px}
+.more .btn{min-width:240px}
+@media (max-width:720px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .card{padding:8px}
+  .prev{margin-bottom:8px}
+  .code{font-size:.8rem;padding:2px 9px}
+  .dsc{display:none}
+  .mode{font-size:.78rem;margin-top:6px}
+  .card .mode+small{font-size:.72rem}
+  .zoom{padding:8px;font-size:.85rem}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin-right:-20px;padding-right:20px;padding-bottom:4px}
+  .chip{flex:0 0 auto;white-space:nowrap}
+  .more .btn{width:100%}
+}
