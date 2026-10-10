@@ -23,7 +23,7 @@
       <p class="lead"><b>CV Profesional,</b><b>Peluang Karier</b><em>Lebih Nyata!</em></p>
       <div class="cta">
         <a class="btn wa" data-wa="Halo, saya mau tanya soal jasa pembuatan CV." href="#">Chat WhatsApp</a>
-        <a class="btn" href="#template">Lihat template</a>
+        <a class="btn" href="#layanan">Lihat layanan</a>
       </div>
     </div>
     <div class="vis">
@@ -47,59 +47,70 @@
     </div>
   </div>
 
+  <section id="layanan">
+    <h2>Pilih layanan</h2>
+    <p class="sub">Tambahkan ke keranjang, lalu kirim pesanan lewat WhatsApp.</p>
+    <h3 class="gh">Paket hemat</h3>
+    <div class="svs" id="pkg"></div>
+    <h3 class="gh">Layanan satuan</h3>
+    <div class="svs" id="svc"></div>
+    <ul class="note">
+      <li>Pembuatan memakai desain template yang ada di Instagram @ejasa.cv.</li>
+      <li>Pembayaran via OVO, DANA, ShopeePay, GoPay, dan BCA.</li>
+      <li>Pengerjaan dimulai setelah pengisian data selesai. Teliti dan cek kembali kelengkapan data.</li>
+      <li>CV di luar paket hanya mendapat file PDF.</li>
+    </ul>
+  </section>
+
   <section id="template">
-    <h2>Pilih template</h2>
-    <p class="sub">Ketuk template untuk memilih. Ketuk lagi untuk berganti antara tampilan CV dan surat lamaran. Pilihanmu otomatis ikut terkirim ke form dan WhatsApp.</p>
+    <h2>Contoh template</h2>
+    <p class="sub">Lihat contoh desainnya. Ketuk template untuk melihat, ketuk lagi untuk berganti antara CV dan surat lamaran. Sudah ada yang cocok? Kodenya otomatis ikut di pesanan. Belum yakin? Pilih nanti setelah pesananmu dikonfirmasi.</p>
     <div class="chips" id="chips" role="group" aria-label="Filter kategori"></div>
     <div class="grid" id="grid"></div>
     <div class="more"><small id="cnt"></small><button class="btn" id="moreBtn" type="button">Tampilkan lebih banyak</button></div>
-  </section>
-
-  <section id="paket">
-    <h2>Paket</h2>
-    <p class="sub">Pembuatan paket memakai desain template yang ada di Instagram @ejasa.cv.</p>
-    <div class="pk" id="pk"></div>
-    <h3 style="margin:36px 0 10px">Layanan satuan</h3>
-    <div class="pl" id="pl"></div>
-    <ul class="note">
-      <li>Prioritas: lewati antrean dengan paket No Antri, pengerjaan 1 jam.</li>
-      <li>Pembayaran via OVO, DANA, ShopeePay, GoPay, dan BCA.</li>
-      <li>Pengerjaan dimulai setelah pengisian data selesai. Teliti dan cek kembali kelengkapan data yang kamu isi.</li>
-      <li>CV di luar paket hanya mendapat file PDF.</li>
-    </ul>
   </section>
 
   <section id="alur">
     <h2>Cara pesan</h2>
     <p class="sub"></p>
     <ol class="steps">
-      <li>Pilih kode template di atas.</li>
-      <li>Isi form data diri, pengalaman, dan pendidikan.</li>
-      <li>Chat WhatsApp untuk konfirmasi dan pembayaran.</li>
-      <li>Terima draf, minta revisi, lalu terima file final.</li>
+      <li>Pilih layanan dan tambahkan ke keranjang.</li>
+      <li>Kirim pesanan lewat WhatsApp. Pesannya sudah tersusun otomatis.</li>
+      <li>Admin mengonfirmasi harga dan pembayaran.</li>
+      <li>CV dan surat lamaran: isi form data dan pilih template. Foto dan dokumen: kirim file langsung lewat WhatsApp.</li>
+      <li>Terima hasil, revisi jika perlu.</li>
     </ol>
     <div class="cta" style="margin-top:22px">
-      <a class="btn acc" id="formBtn" href="#" target="_blank" rel="noopener">Isi form pemesanan</a>
-      <a class="btn wa" id="waBtn" href="#">Chat WhatsApp</a>
+      <a class="btn acc" id="formBtn" href="#" target="_blank" rel="noopener">Sudah dikonfirmasi? Isi form data</a>
+      <a class="btn wa" data-wa="Halo, saya mau tanya soal pesanan saya." href="#">Chat WhatsApp</a>
     </div>
   </section>
 
   <section id="faq">
     <h2>Pertanyaan umum</h2>
     <p class="sub"></p>
-    <details><summary>Berapa lama pengerjaannya?</summary><p>Isi estimasi waktu kamu di sini, misalnya 1-2 hari kerja setelah form dan pembayaran diterima.</p></details>
-    <details><summary>Berapa kali boleh revisi?</summary><p>Isi jumlah revisi yang kamu berikan per paket.</p></details>
-    <details><summary>File apa yang saya terima?</summary><p>Isi format file, misalnya PDF dan file yang bisa diedit.</p></details>
+    <details><summary>Berapa lama pengerjaannya?</summary><p>1-2 hari kerja setelah form dan pembayaran diterima, gunakan prioritas untuk pengerjaan lebih cepat</p></details>
+    <details><summary>Berapa kali boleh revisi?</summary><p>Revisi 1x atau mengikuti paket, tidak berlaku untuk perubahan desain</p></details>
+    <details><summary>File apa yang saya terima?</summary><p>PDF untuk satuan atau mengikuti paket</p></details>
   </section>
 
   <footer>Ikuti Ejasa CV di Instagram: <a id="igLink" href="#" target="_blank" rel="noopener">@ejasa.cv</a></footer>
 </div>
 
 <div class="bar">
-  <span id="pick">Belum pilih template</span>
-  <div class="cta">
-    <a class="btn acc" id="formBtn2" href="#" target="_blank" rel="noopener">Isi form</a>
-    <a class="btn wa" id="waBtn2" href="#">WhatsApp</a>
+  <button class="cartinfo" id="cartOpen" type="button"><b id="cartCount">Keranjang kosong</b><small id="cartPick"></small></button>
+  <div class="cta"><a class="btn wa wa-cart" href="#">Chat WhatsApp</a></div>
+</div>
+
+<div id="cart" role="dialog" aria-modal="true" aria-label="Keranjang">
+  <div class="panel">
+    <div class="ph"><h3>Keranjang</h3><button class="btn" id="cartX" type="button">Tutup</button></div>
+    <div id="cl"></div>
+    <div id="sg"></div>
+    <div class="tot"><span>Total</span><b id="tt"></b></div>
+    <small id="tn"></small>
+    <p class="nx" id="nx"></p>
+    <div class="cta"><a class="btn wa wa-cart" href="#">Pesan via WhatsApp</a><button class="btn" id="clrCart" type="button">Kosongkan</button></div>
   </div>
 </div>
 
