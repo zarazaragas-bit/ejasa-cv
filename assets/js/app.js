@@ -2,18 +2,97 @@
 var chosen = "", cat = "Semua", view = "cv", shown = 0;
 var $ = function(id){return document.getElementById(id)};
 function waLink(t){return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t)}
-function formLink(){return chosen ? FORM_URL+"?usp=pp_url&"+FORM_TEMPLATE_ENTRY+"="+encodeURIComponent(chosen) : FORM_URL}
-function waText(){return chosen ? 'Halo, saya mau pesan CV dengan template "'+chosen+'".' : "Halo, saya mau tanya soal jasa pembuatan CV."}
+/* ===== KERANJANG ===== */
+var cart = [], lastCode = "";
+try { cart = JSON.parse(localStorage.getItem("ejasa-cart") || "[]"); lastCode = localStorage.getItem("ejasa-code") || ""; } catch(e) {}
+function fmt(n){return "Rp"+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,".")}
+function saveCart(){try{localStorage.setItem("ejasa-cart",JSON.stringify(cart));localStorage.setItem("ejasa-code",lastCode)}catch(e){}}
+function orderCode(){var d=new Date();return "EJ-"+("0"+d.getDate()).slice(-2)+("0"+(d.getMonth()+1)).slice(-2)+"-"+Math.floor(100+Math.random()*900)}
+function findLine(k){return cart.filter(function(l){return l.k===k})[0]}
+function pkgLine(p){return {k:"pk|"+p.id,id:"pk-"+p.id,n:"Paket "+p.name,o:"",p:p.p,pk:1,form:1,tpl:1}}
+function addItem(it){var l=findLine(it.k);if(l)l.qty++;else{if(!cart.length)lastCode=orderCode();it.qty=1;cart.push(it)}refresh()}
+function chg(k,d){var l=findLine(k);if(!l)return;l.qty+=d;if(l.qty<1)cart.splice(cart.indexOf(l),1);refresh()}
+function totals(){var t=0,ask=0;cart.forEach(function(l){if(l.p==null)ask++;else t+=l.p*l.qty});return {t:t,ask:ask}}
+function lineName(l){return l.n+(l.o?" ("+l.o+")":"")}
+function pr(id,o){var l=cart.filter(function(x){return x.id===id&&(!o||x.o===o)})[0];return l&&l.p?l.p:0}
+function suggest(){
+  if(cart.some(function(l){return l.pk}))return null;
+  var cv=pr("cv","Dari template"),sl=pr("sl","Dari template"),pdf=pr("pdf"),bg=pr("bg"),best=null;
+  if(!cv||!sl)return null;
+  [["std",cv+sl],["biz",cv+sl+pdf+bg]].forEach(function(c){
+    var p=PAKET.filter(function(x){return x.id===c[0]})[0];
+    if(c[0]==="biz"&&!(pdf||bg))return;
+    var save=c[1]-p.p;
+    if(save>0&&(!best||save>=best.save)){
+      var rm=[["cv","Dari template"],["sl","Dari template"]];
+      if(c[0]==="biz"){if(pdf)rm.push(["pdf"]);if(bg)rm.push(["bg"])}
+      best={p:p,save:save,rm:rm};
+    }
+  });
+  return best;
+}
+function applySug(){
+  var s=suggest();if(!s)return;
+  s.rm.forEach(function(r){var l=cart.filter(function(x){return x.id===r[0]&&(!r[1]||x.o===r[1])})[0];if(l){l.qty--;if(l.qty<1)cart.splice(cart.indexOf(l),1)}});
+  addItem(pkgLine(s.p));
+}
+function waMsg(){
+  if(!cart.length)return "Halo Ejasa CV, saya mau tanya soal jasa pembuatan CV.";
+  var m=["Halo Ejasa CV, saya mau pesan:","Kode pesanan: "+lastCode,""],tt=totals();
+  cart.forEach(function(l,i){m.push((i+1)+". "+lineName(l)+" x"+l.qty+" - "+(l.p==null?"tanya harga":fmt(l.p*l.qty)))});
+  m.push("","Total: "+fmt(tt.t)+(tt.ask?" (belum termasuk "+tt.ask+" item tanya harga)":""));
+  if(chosen&&cart.some(function(l){return l.tpl}))m.push("Template pilihan: "+chosen);
+  m.push("","Mohon dikonfirmasi ya. Terima kasih.");
+  return m.join("\n");
+}
+function okEntry(e){return !!e&&!/^entry\.0+\d?$/.test(e)}
+function formLink(){
+  var t=cur(),q=[];
+  if(lastCode&&okEntry(FORM_ORDER_ENTRY))q.push(FORM_ORDER_ENTRY+"="+encodeURIComponent(lastCode));
+  if(t&&okEntry(FORM_TEMPLATE_ENTRY))q.push(FORM_TEMPLATE_ENTRY+"="+encodeURIComponent(typeof FORM_TEMPLATE_PAKAI!=="undefined"&&FORM_TEMPLATE_PAKAI==="kode"?t.kode:t.n));
+  return FORM_URL+(q.length?"?usp=pp_url&"+q.join("&"):"");
+}
+function nextText(){
+  var f=cart.some(function(l){return l.form}),o=cart.some(function(l){return !l.form});
+  if(f&&o)return "Setelah dikonfirmasi: isi form data untuk CV/surat, dan kirim file foto/dokumen lewat WhatsApp.";
+  if(f)return "Setelah dikonfirmasi: kamu mengisi form data dan memilih template.";
+  if(o)return "Setelah dikonfirmasi: kirim file langsung lewat WhatsApp, tanpa form.";
+  return "";
+}
+function drawCart(){
+  var t=totals(),s=suggest();
+  $("cl").innerHTML=cart.map(function(l){
+    return '<div class="ln2"><div><b>'+lineName(l)+'</b><small>'+(l.p==null?"Tanya admin":fmt(l.p)+" / item")+'</small></div><div class="qty"><button type="button" data-k="'+l.k+'" data-d="-1" aria-label="Kurangi">-</button><span>'+l.qty+'</span><button type="button" data-k="'+l.k+'" data-d="1" aria-label="Tambah">+</button></div></div>';
+  }).join("")||'<p class="sub">Keranjang masih kosong. Tambahkan layanan dari daftar.</p>';
+  $("sg").innerHTML=s?'<div class="sg"><b>Lebih hemat dengan Paket '+s.p.name+'</b><small>Hemat '+fmt(s.save)+' dari pesananmu sekarang</small><button class="btn acc" type="button">Ganti ke paket</button></div>':"";
+  $("tt").textContent=fmt(t.t);
+  $("tn").textContent=t.ask?"Belum termasuk "+t.ask+" item yang harganya ditanyakan ke admin.":"";
+  $("nx").textContent=nextText();
+}
 function refresh(){
-  ["formBtn","formBtn2"].forEach(function(i){$(i).href=formLink()});
-  ["waBtn","waBtn2"].forEach(function(i){$(i).href=waLink(waText())});
+  var t=totals(),n=0;cart.forEach(function(l){n+=l.qty});
+  document.querySelectorAll(".wa-cart").forEach(function(a){a.href=waLink(waMsg());a.textContent=cart.length?"Pesan via WhatsApp":"Chat WhatsApp"});
   document.querySelectorAll("[data-wa]").forEach(function(a){a.href=waLink(a.dataset.wa)});
-  document.querySelectorAll("[data-pk]").forEach(function(a){a.href=waLink('Halo, saya mau pesan paket '+a.dataset.pk+(chosen?' dengan template "'+chosen+'"':'')+'.')});
+  $("formBtn").href=formLink();
   $("telLink").href=waLink("Halo, saya mau konsultasi soal CV.");
-  $("pick").textContent = chosen ? "Template: "+chosen : "Belum pilih template";
-  $("igLink").href = IG_URL;
+  $("igLink").href=IG_URL;
+  $("cartCount").textContent=n?n+" item - "+fmt(t.t)+(t.ask?" + tanya harga":""):"Keranjang kosong";
+  $("cartPick").textContent=chosen?"Template: "+chosen:"Ketuk untuk melihat keranjang";
+  drawCart();saveCart();
   document.querySelectorAll('a[href^="https://wa.me"]').forEach(function(a){a.target="_top"});
 }
+function renderServices(){
+  var li=function(x){return '<li>'+x+'</li>'},price=function(p){return p==null?"Tanya admin":fmt(p)};
+  $("pkg").innerHTML=PAKET.map(function(p){
+    return '<div class="sv gold"><h3>Paket '+p.name+'</h3><small class="tm">Pengerjaan '+p.t+'</small><b class="pr">'+fmt(p.p)+'</b><ul>'+p.f.map(li).join("")+'</ul><button class="btn acc" type="button" data-pk="'+p.id+'">Tambah paket</button></div>';
+  }).join("");
+  $("svc").innerHTML=SERVICES.map(function(s){
+    var multi=s.opts.length>1;
+    return '<div class="sv"><h3>'+s.name+'</h3><small class="tm">'+s.desc+'</small>'+(multi?'<select data-s="'+s.id+'" aria-label="Pilihan '+s.name+'">'+s.opts.map(function(o,i){return '<option value="'+i+'">'+o.o+' - '+price(o.p)+'</option>'}).join("")+'</select>':'<b class="pr">'+price(s.opts[0].p)+'</b>')+'<button class="btn acc" type="button" data-s="'+s.id+'">Tambah</button></div>';
+  }).join("");
+}
+function flash(b){var t=b.textContent;b.textContent="Ditambahkan";setTimeout(function(){b.textContent=t},900)}
+function closeCart(){$("cart").classList.remove("on")}
 function preview(l){
   var lines='<i></i><i></i><i style="width:80%"></i><i></i><i style="width:65%"></i><i></i>';
   if(l==="side") return '<div class="prev"><div class="side"></div><div class="main"><i class="t"></i>'+lines+'</div></div>';
@@ -68,10 +147,8 @@ function render(){
 }
 $("chips").onclick=function(e){var c=e.target.dataset.c;if(c){cat=c;shown=pageSize();render()}};
 $("grid").onclick=function(e){if(e.target.closest(".zoom")){openLb();return}var b=e.target.closest(".card");if(!b)return;if(chosen===b.dataset.n){if(hasSurat(cur()))view=view==="cv"?"surat":"cv"}else{chosen=b.dataset.n;view="cv"}render();refresh();var c=$("grid").querySelector('[data-n="'+chosen+'"]');if(c)c.focus()};
-$("pk").innerHTML=PACKAGES.map(function(p){return '<div><h3>'+p.n+'</h3><small class="tm">'+p.t+'</small><b>'+p.p+'</b><ul>'+p.f.map(function(f){return '<li>'+f+'</li>'}).join("")+'</ul><a class="btn wa" data-pk="'+p.n+'" href="#">Pesan paket</a></div>'}).join("");
-$("pl").innerHTML=SERVICES.map(function(r){return '<div><span>'+r[0]+'</span><b>Rp'+r[1]+'</b></div>'}).join("");
-$("startPrice").textContent=PACKAGES[0].p;
-shown=pageSize();render();refresh();
+$("startPrice").textContent=fmt(PAKET[0].p);
+shown=pageSize();renderServices();render();refresh();
 $("lbx").onclick=closeLb;
 $("lb").onclick=function(e){if(e.target===this)closeLb()};
 $("lbsw").onclick=function(){view=view==="cv"?"surat":"cv";render();refresh();openLb()};
@@ -84,3 +161,18 @@ document.addEventListener("keydown",function(e){
   else if(e.key==="ArrowLeft")nav(-1);
   else if(e.key==="ArrowRight")nav(1);
 });
+$("layanan").onclick=function(e){
+  var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.pk){addItem(pkgLine(PAKET.filter(function(p){return p.id===b.dataset.pk})[0]));flash(b)}
+  else if(b.dataset.s){
+    var s=SERVICES.filter(function(x){return x.id===b.dataset.s})[0],sel=$("svc").querySelector('select[data-s="'+s.id+'"]'),o=s.opts[sel?+sel.value:0];
+    addItem({k:s.id+"|"+o.o,id:s.id,n:s.name,o:o.o,p:o.p,form:o.form,tpl:o.tpl});flash(b);
+  }
+};
+$("cartOpen").onclick=function(){$("cart").classList.add("on")};
+$("cartX").onclick=closeCart;
+$("cart").onclick=function(e){if(e.target===this)closeCart()};
+$("clrCart").onclick=function(){cart=[];refresh()};
+$("cl").onclick=function(e){var b=e.target.closest("button");if(b)chg(b.dataset.k,+b.dataset.d)};
+$("sg").onclick=function(e){if(e.target.closest("button"))applySug()};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeCart()});

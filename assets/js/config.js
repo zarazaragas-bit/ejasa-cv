@@ -1,8 +1,10 @@
 /* config.js - semua yang perlu kamu ubah ada di file ini */
 /* ===== UBAH BAGIAN INI ===== */
 var WA_NUMBER = "6287878101055";      // 0878 7810 1055
-var FORM_URL  = "https://docs.google.com/forms/d/19ZimYGdAnNpDqEmkRuB7I_gyXC2Nfh98BGTF98WL-Pw/";
+var FORM_URL  = "https://docs.google.com/forms/d/19ZimYGdAnNpDqEmkRuB7I_gyXC2Nfh98BGTF98WL-Pw/viewform";
+var FORM_ORDER_ENTRY = "entry.0000001";    // kode entry untuk pertanyaan "Kode pesanan" di Google Form
 var FORM_TEMPLATE_ENTRY = "entry.0000000"; // dari "Dapatkan link terisi otomatis" di Google Form
+var FORM_TEMPLATE_PAKAI = "nama";  // isi kolom KODE CV di form: "nama" = CV Kode 005 | "kode" = 005
 var IG_URL = "https://instagram.com/ejasa.cv";
 // ===== DAFTAR TEMPLATE =====
 // Gambar ada di assets/img/templates/ dengan nama CV-xxx.png (CV) dan CV-xxx-S.png (surat lamaran).
@@ -60,6 +62,7 @@ var TEMPLATES = LIST.map(function(r){
   var s = r[2];
   return {
     n: "CV Kode " + r[0],
+    kode: r[0],
     c: r[1],
     d: s ? "Termasuk surat lamaran" : "CV saja",
     img: BASE + "CV-" + r[0] + ".png",
@@ -67,13 +70,22 @@ var TEMPLATES = LIST.map(function(r){
     surat: !!s
   };
 });
-var PACKAGES = [
-  {n:"Standart",p:"Rp35.000",t:"Pengerjaan 1x24 jam",f:["CV (PDF)","Surat lamaran (Word)"]},
-  {n:"Business",p:"Rp45.000",t:"Pengerjaan 1x24 jam",f:["CV (PDF)","Surat lamaran (Word)","Gabung PDF","Gratis: edit background foto, request file Word"]},
-  {n:"Premium",p:"Rp50.000",t:"Pengerjaan 3 s.d 4 jam",f:["CV (PDF)","Surat lamaran (Word)","Gabung PDF","Gratis: edit background foto, request file Word, konsultasi"]}
+// ===== LAYANAN DAN HARGA =====
+// p = harga (rupiah), atau null kalau "tanya admin" (tidak dihitung di total)
+// form:1 = setelah pesan, pelanggan mengisi form data | tpl:1 = perlu memilih template
+var PAKET = [
+  {id:"std",name:"Standart",p:35000,t:"1x24 jam",f:["CV (PDF)","Surat lamaran (Word)"]},
+  {id:"biz",name:"Business",p:45000,t:"1x24 jam",f:["CV (PDF)","Surat lamaran (Word)","Gabung PDF","Gratis: edit background foto, request file Word"]},
+  {id:"prm",name:"Premium",p:50000,t:"3 s.d 4 jam",f:["CV (PDF)","Surat lamaran (Word)","Gabung PDF","Gratis: edit background foto, request file Word, konsultasi"]}
 ];
 var SERVICES = [
-  ["Curriculum Vitae","25.000"],["Curriculum Vitae (custom)","30.000"],["Surat lamaran","15.000"],["Surat lamaran (custom)","25.000"],
-  ["Edit background foto","10.000"],["Gabung PDF (<10 lembar)","10.000"],["Gabung PDF (>10 lembar)","15.000"],["Edit CV","15.000"],["Prioritas","20.000"]
+  {id:"cv",name:"Curriculum Vitae",desc:"CV profesional dari template pilihan",opts:[{o:"Dari template",p:25000,form:1,tpl:1},{o:"Custom",p:30000,form:1}]},
+  {id:"sl",name:"Surat lamaran",desc:"Surat lamaran kerja siap kirim",opts:[{o:"Dari template",p:15000,form:1,tpl:1},{o:"Custom",p:25000,form:1}]},
+  {id:"bg",name:"Edit background foto",desc:"Per foto, file dikirim lewat WhatsApp",opts:[{o:"",p:10000}]},
+  {id:"pdf",name:"Gabung PDF",desc:"Satukan beberapa file jadi satu PDF",opts:[{o:"Kurang dari 10 lembar",p:10000},{o:"Lebih dari 10 lembar",p:15000}]},
+  {id:"edit",name:"Edit CV",desc:"Revisi CV yang sudah kamu punya",opts:[{o:"",p:15000}]},
+  {id:"doc",name:"Desain dokumen",desc:"Proposal, undangan, dan dokumen lain",opts:[{o:"",p:null}]},
+  {id:"zip",name:"Kompres dokumen",desc:"Perkecil ukuran file dokumen",opts:[{o:"",p:null}]},
+  {id:"pri",name:"Prioritas (No Antri)",desc:"Terabas antrean, pengerjaan 1 jam",opts:[{o:"",p:20000}]}
 ];
 /* =========================== */
