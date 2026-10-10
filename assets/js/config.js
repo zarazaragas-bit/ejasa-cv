@@ -1,9 +1,9 @@
 /* config.js - semua yang perlu kamu ubah ada di file ini */
 /* ===== UBAH BAGIAN INI ===== */
 var WA_NUMBER = "6287878101055";      // 0878 7810 1055
-var FORM_URL  = "https://docs.google.com/forms/d/19ZimYGdAnNpDqEmkRuB7I_gyXC2Nfh98BGTF98WL-Pw/viewform";
-var FORM_ORDER_ENTRY = "entry.0000001";    // kode entry untuk pertanyaan "Kode pesanan" di Google Form
-var FORM_TEMPLATE_ENTRY = "entry.0000000"; // dari "Dapatkan link terisi otomatis" di Google Form
+var FORM_URL  = "https://docs.google.com/forms/d/e/1FAIpQLSdOW1Wn1Jough16nEbtZ3lUyTdjfXLXPjDFSNIvGv6ExsXLNg/viewform";
+var FORM_ORDER_ENTRY = "entry.1674770662";    // kode entry untuk pertanyaan "Kode pesanan" di Google Form
+var FORM_TEMPLATE_ENTRY = "entry.1608842900"; // dari "Dapatkan link terisi otomatis" di Google Form
 var FORM_TEMPLATE_PAKAI = "nama";  // isi kolom KODE CV di form: "nama" = CV Kode 005 | "kode" = 005
 var IG_URL = "https://instagram.com/ejasa.cv";
 // ===== DAFTAR TEMPLATE =====
