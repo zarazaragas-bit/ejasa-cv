@@ -120,3 +120,32 @@ footer{padding:30px 0;color:var(--mut);font-size:.9rem}
   .chip{flex:0 0 auto;white-space:nowrap}
   .more .btn{width:100%}
 }
+
+.gh{margin:26px 0 12px;font-size:1.05rem}
+.svs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.sv{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px}
+.sv.gold{border-top:5px solid var(--gold)}
+.sv .tm{color:var(--mut);display:block;margin-bottom:4px}
+.sv .pr{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:1.8rem;color:var(--acc);display:block;margin:6px 0 10px}
+:root[data-theme="dark"] .sv .pr{color:var(--gold)}
+.sv ul{margin:0 0 14px;padding-left:18px;color:var(--mut);font-size:.9rem}
+.sv select{width:100%;padding:9px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:inherit;font-size:.9rem;margin:8px 0 12px}
+.sv .btn{width:100%;margin-top:auto}
+.cartinfo{background:none;border:0;color:#fff;text-align:left;cursor:pointer;font-family:inherit;padding:0}
+.cartinfo b{display:block;color:var(--gold);font-size:.95rem}
+.cartinfo small{opacity:.85}
+#cart{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(5,8,25,.6);z-index:30;display:none;align-items:flex-end;justify-content:center}
+#cart.on{display:flex}
+#cart .panel{background:var(--paper);color:var(--ink);width:100%;max-width:520px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+#cart .btn:not(.wa):not(.acc){border-color:var(--ink);color:var(--ink)}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ln2{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.ln2 small{display:block;color:var(--mut)}
+.qty{display:flex;align-items:center;gap:10px;font-weight:700}
+.qty button{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);font-size:1.1rem;font-weight:800;cursor:pointer}
+.sg{background:var(--sel);border:2px solid var(--gold);border-radius:10px;padding:12px;margin:12px 0}
+.sg b{display:block}
+.sg small{display:block;margin-bottom:8px;color:var(--mut)}
+.tot{display:flex;justify-content:space-between;font-size:1.25rem;font-weight:800;margin:14px 0 4px}
+#tn{color:var(--mut)}
+.nx{color:var(--mut);font-size:.9rem;margin:8px 0 14px}
